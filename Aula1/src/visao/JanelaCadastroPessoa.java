@@ -5,7 +5,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controle.FuncionarioDAO;
+import modelo.Funcionario;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
@@ -76,8 +81,26 @@ public class JanelaCadastroPessoa extends JFrame {
 		JButton btnSalvar = new JButton("Enviar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nome = txtNome.getText();
+				Long cpf = Long.valueOf(txtCpf.getText());
+				
+				if (nome.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Nenhum nome preenchido!");
+				}
+				if (cpf == null) {
+					JOptionPane.showMessageDialog(null, "Nenhum cpf preenchido!");
+				}
+				
+				Funcionario func = new Funcionario();
+				func.setNome(nome);
+				func.setCpf(cpf);
+				
+				FuncionarioDAO listaFuncionarios = FuncionarioDAO.getInstancia();
+				listaFuncionarios.inserir(func);
+				
 				
 			}
+	
 		});
 		btnSalvar.setBounds(176, 155, 89, 23);
 		contentPane.add(btnSalvar);
