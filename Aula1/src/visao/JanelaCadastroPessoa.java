@@ -23,6 +23,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JList;
@@ -84,6 +85,19 @@ public class JanelaCadastroPessoa extends JFrame {
 		lblCPFFuncionario.setBounds(233, 70, 39, 14);
 		contentPane.add(lblCPFFuncionario);
 		
+		JLabel lblListar = new JLabel("");
+		lblListar.setBounds(119, 227, 188, 84);
+		contentPane.add(lblListar);
+		
+		
+		Funcionario f = new Funcionario();
+		
+		
+
+		FuncionarioDAO bancoFuncionario = FuncionarioDAO.getInstanciaFuncionario();
+		
+		
+		
 		JButton btnSalvar = new JButton("Enviar");
 		btnSalvar.addActionListener(new ActionListener() {
 			
@@ -93,21 +107,28 @@ public class JanelaCadastroPessoa extends JFrame {
 				
 				if (nome.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhum nome preenchido!");
+				} else {
+					f.setNome(nome);
 				}
 				if (cpf.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhum cpf preenchido!");
+				} else {
+					f.setCpf(cpf);
 				}
 				
-				Funcionario f = new Funcionario();
-				f.setNome(nome);
-				f.setCpf(Long.parseLong(cpf));
 				
-				FuncionarioDAO tabelaFuncionario = FuncionarioDAO.getInstanciaFuncionario();
-				tabelaFuncionario.criarFuncionario(f);
-				
+				bancoFuncionario.criarFuncionario(f);
+				ArrayList<Funcionario> lista = bancoFuncionario.listarFuncionario();
+		
+				for (Funcionario funcionario : lista) {
+					System.out.print(funcionario);
+				}	
 			}
+			
 	
 		});
+		
+		
 		
 		btnSalvar.setBounds(176, 155, 89, 23);
 		contentPane.add(btnSalvar);
@@ -126,6 +147,7 @@ public class JanelaCadastroPessoa extends JFrame {
 		lblSexo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblSexo.setBounds(55, 114, 48, 14);
 		contentPane.add(lblSexo);
+		
 	
 				
 		
