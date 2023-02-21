@@ -12,14 +12,20 @@ import modelo.Funcionario;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ListModel;
+
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.JList;
 
 public class JanelaCadastroPessoa extends JFrame {
 
@@ -50,7 +56,7 @@ public class JanelaCadastroPessoa extends JFrame {
 	public JanelaCadastroPessoa() {
 		setBackground(new Color(174, 167, 81));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 457, 236);
+		setBounds(100, 100, 457, 386);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(219, 219, 219));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -80,28 +86,29 @@ public class JanelaCadastroPessoa extends JFrame {
 		
 		JButton btnSalvar = new JButton("Enviar");
 		btnSalvar.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
 				String nome = txtNome.getText();
-				Long cpf = Long.valueOf(txtCpf.getText());
+				String cpf = txtCpf.getText();
 				
 				if (nome.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhum nome preenchido!");
 				}
-				if (cpf == null) {
+				if (cpf.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhum cpf preenchido!");
 				}
 				
-				Funcionario func = new Funcionario();
-				func.setNome(nome);
-				func.setCpf(cpf);
+				Funcionario f = new Funcionario();
+				f.setNome(nome);
+				f.setCpf(Long.parseLong(cpf));
 				
-				FuncionarioDAO listaFuncionarios = FuncionarioDAO.getInstancia();
-				listaFuncionarios.inserir(func);
-				
+				FuncionarioDAO tabelaFuncionario = FuncionarioDAO.getInstanciaFuncionario();
+				tabelaFuncionario.criarFuncionario(f);
 				
 			}
 	
 		});
+		
 		btnSalvar.setBounds(176, 155, 89, 23);
 		contentPane.add(btnSalvar);
 		
@@ -119,6 +126,8 @@ public class JanelaCadastroPessoa extends JFrame {
 		lblSexo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblSexo.setBounds(55, 114, 48, 14);
 		contentPane.add(lblSexo);
+	
+				
 		
 	}
 }
