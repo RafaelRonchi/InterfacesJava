@@ -1,13 +1,13 @@
 package modelo;
 
 public class Funcionario extends Pessoa{
-	private Long cpf;
+	private String cpf;
 
-	public Long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Long cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 }
