@@ -86,16 +86,17 @@ public class JanelaCadastroPessoa extends JFrame {
 		contentPane.add(lblCPFFuncionario);
 		
 		JLabel lblListar = new JLabel("");
+		lblListar.setBackground(new Color(128, 128, 128));
 		lblListar.setBounds(119, 227, 188, 84);
 		contentPane.add(lblListar);
 		
 		
-		Funcionario f = new Funcionario();
+		
 		
 		
 
 		FuncionarioDAO bancoFuncionario = FuncionarioDAO.getInstanciaFuncionario();
-		
+		Funcionario f = new Funcionario();
 		
 		
 		JButton btnSalvar = new JButton("Enviar");
@@ -118,19 +119,17 @@ public class JanelaCadastroPessoa extends JFrame {
 				
 				
 				bancoFuncionario.criarFuncionario(f);
-				ArrayList<Funcionario> lista = bancoFuncionario.listarFuncionario();
-		
-				for (Funcionario funcionario : lista) {
-					System.out.print(funcionario);
-				}	
+			
 			}
 			
 	
 		});
 		
+		ArrayList<Funcionario> lista = bancoFuncionario.listarFuncionario();
 		
 		
-		btnSalvar.setBounds(176, 155, 89, 23);
+		
+		btnSalvar.setBounds(88, 156, 89, 23);
 		contentPane.add(btnSalvar);
 		
 		JLabel lblNewLabel_1 = new JLabel("Cadastro");
@@ -147,6 +146,19 @@ public class JanelaCadastroPessoa extends JFrame {
 		lblSexo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblSexo.setBounds(55, 114, 48, 14);
 		contentPane.add(lblSexo);
+		
+		JButton btnListar = new JButton("Listar");
+		btnListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				for (Funcionario funcionario : lista) {
+					lblListar.setText("Nome: " + funcionario.getNome() + "  Cpf: " + funcionario.getCpf());
+				}
+				
+			}
+		});
+		btnListar.setBounds(246, 156, 89, 23);
+		contentPane.add(btnListar);
 		
 	
 				
