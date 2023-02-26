@@ -96,6 +96,7 @@ public class JanelaCadastroPessoa extends JFrame {
 		
 
 		FuncionarioDAO bancoFuncionario = FuncionarioDAO.getInstanciaFuncionario();
+		ArrayList<Funcionario> lista = bancoFuncionario.listarFuncionario();
 		Funcionario f = new Funcionario();
 		
 		
@@ -109,12 +110,12 @@ public class JanelaCadastroPessoa extends JFrame {
 				if (nome.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhum nome preenchido!");
 				} else {
-					f.setNome(nome);
+					f.setNome(String.valueOf(nome));
 				}
 				if (cpf.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhum cpf preenchido!");
 				} else {
-					f.setCpf(cpf);
+					f.setCpf(String.valueOf(cpf));
 				}
 				
 				
@@ -125,7 +126,7 @@ public class JanelaCadastroPessoa extends JFrame {
 	
 		});
 		
-		ArrayList<Funcionario> lista = bancoFuncionario.listarFuncionario();
+		
 		
 		
 		
@@ -151,8 +152,9 @@ public class JanelaCadastroPessoa extends JFrame {
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				for (Funcionario funcionario : lista) {
-					lblListar.setText("Nome: " + funcionario.getNome() + "  Cpf: " + funcionario.getCpf());
+				for (Funcionario funcionario : bancoFuncionario.listarFuncionario()) {
+					 
+					 System.out.println(("Nome: " + funcionario.getNome() + "  Cpf: " + funcionario.getCpf()));
 				}
 				
 			}

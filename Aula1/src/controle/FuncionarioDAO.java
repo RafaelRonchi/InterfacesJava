@@ -26,12 +26,8 @@ public class FuncionarioDAO implements IFuncionarioDAO {
 
 	@Override
 	public boolean criarFuncionario(Funcionario f) {
-		if (f != null) {
 			tabelaFuncionario.add(f);
 			return true;
-		}
-		
-		return false;
 	}
 
 	@Override
