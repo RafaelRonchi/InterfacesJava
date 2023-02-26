@@ -151,9 +151,7 @@ public class JanelaCadastroPessoa extends JFrame {
 		JButton btnListar = new JButton("Listar");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				for (Funcionario funcionario : bancoFuncionario.listarFuncionario()) {
-					 
+				for (Funcionario funcionario : lista) {
 					 System.out.println(("Nome: " + funcionario.getNome() + "  Cpf: " + funcionario.getCpf()));
 				}
 				
