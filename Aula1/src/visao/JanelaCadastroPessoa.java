@@ -96,13 +96,15 @@ public class JanelaCadastroPessoa extends JFrame {
 		
 
 		FuncionarioDAO bancoFuncionario = FuncionarioDAO.getInstanciaFuncionario();
-		Funcionario f = new Funcionario();
+		
+		ArrayList<Funcionario> lista = bancoFuncionario.listarFuncionario();
 		
 		
 		JButton btnSalvar = new JButton("Enviar");
 		btnSalvar.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
+				Funcionario f = new Funcionario();
 				String nome = txtNome.getText();
 				String cpf = txtCpf.getText();
 				
@@ -117,7 +119,6 @@ public class JanelaCadastroPessoa extends JFrame {
 					f.setCpf(cpf);
 				}
 				
-				
 				bancoFuncionario.criarFuncionario(f);
 			
 			}
@@ -125,7 +126,7 @@ public class JanelaCadastroPessoa extends JFrame {
 	
 		});
 		
-		ArrayList<Funcionario> lista = bancoFuncionario.listarFuncionario();
+		
 		
 		
 		
@@ -152,7 +153,7 @@ public class JanelaCadastroPessoa extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				for (Funcionario funcionario : lista) {
-					lblListar.setText("Nome: " + funcionario.getNome() + "  Cpf: " + funcionario.getCpf());
+					System.out.println("Nome: " + funcionario.getNome() + "  Cpf: " + funcionario.getCpf());
 				}
 				
 			}

@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import modelo.Funcionario;
 import modelo.IFuncionarioDAO;
 
-
-
 public class FuncionarioDAO implements IFuncionarioDAO {
 	private static FuncionarioDAO instanciaFuncionario;
 	private static ArrayList<Funcionario> tabelaFuncionario;
