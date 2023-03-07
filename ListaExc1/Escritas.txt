@@ -1,4 +1,4 @@
-1 Em programação, o que é uma biblioteca?
+﻿1 Em programação, o que é uma biblioteca?
  Uma biblioteca seria um local aonde constaria com metodos uteis na programação, possibilitando a sua importação para uso.
 
 2 O que é a biblioteca Swing do Java e qual é o seu propósito?
@@ -11,3 +11,11 @@ Caixa de Seleção: JCheckBox
 Barra de Progresso: JProgressBar
 Botão de Opção: JRadioNutton
 Caixa de Combinação: JComboBox
+
+4- Os layotus no swing se referem a como os elementos iram se alinhar a tela, como por exemplo o absolut, que possibilita os elementos flutuarem pela tela.
+
+5- Podemos utilizar um laço de repetição que verifica se o valor digitado é coerente caso for o loop finaliza e avança.
+
+6- Variedades de componentes graficos, interfaces e internaciolização.
+
+7- Look: olhar o sistema e Feel: sentir o sistema e suas funcionabilidades. Flatlaf-swingx com SwingX componentes
