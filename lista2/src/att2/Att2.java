@@ -95,8 +95,8 @@ public class Att2 extends JFrame {
 		JButton btnNewButton_1 = new JButton("Exibir");
 		btnNewButton_1.addActionListener(new ActionListener() {
 
-			double menor = a;
-			double maior = a;
+			double menor = Double.MAX_VALUE;
+			double maior = Double.MIN_VALUE;
 
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < Numeros.size(); i++) {

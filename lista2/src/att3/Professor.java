@@ -13,7 +13,7 @@ public class Professor extends Pessoa{
 	
 	@Override
 	public String toString() {
-		return "Nome: " + super.getNome() +" Matricula: "+
+		return "Nome: " + super.getNome() +" Siape: "+
 		this.getSiape()+" Data nascimento: "+super.getDataNasc()+
 		" CPF: "+ super.getCpf();
 	}
