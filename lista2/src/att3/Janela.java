@@ -136,7 +136,7 @@ public class Janela extends JFrame {
 				txtMatricula.setText(null);
 				txtCpf.setText(null);
 				txtSiape.setText(null);
-				txtAluno.setText(""+alunos);
+				
 				
 			}
 		});
@@ -160,7 +160,7 @@ public class Janela extends JFrame {
 					txtMatricula.setText(null);
 					txtSiape.setText(null);
 					txtCpf.setText(null);
-					txtProfessor.setText(""+professor);
+					
 					
 			}
 		});
@@ -170,22 +170,40 @@ public class Janela extends JFrame {
 		
 		txtProfessor = new JTextField();
 		txtProfessor.setEditable(false);
-		txtProfessor.setBounds(76, 177, 423, 20);
+		txtProfessor.setBounds(76, 201, 423, 20);
 		contentPane.add(txtProfessor);
 		txtProfessor.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Aluno:");
-		lblNewLabel_4.setBounds(10, 225, 46, 14);
+		lblNewLabel_4.setBounds(20, 263, 46, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		txtAluno = new JTextField();
 		txtAluno.setEditable(false);
 		txtAluno.setColumns(10);
-		txtAluno.setBounds(76, 222, 423, 20);
+		txtAluno.setBounds(76, 260, 423, 20);
 		contentPane.add(txtAluno);
 		
 		JLabel lblNewLabel_4_1 = new JLabel("Professor:");
-		lblNewLabel_4_1.setBounds(10, 180, 56, 14);
+		lblNewLabel_4_1.setBounds(10, 204, 56, 14);
 		contentPane.add(lblNewLabel_4_1);
+		
+		JButton btnProfessores = new JButton("Listar Professores");
+		btnProfessores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtProfessor.setText(""+professores);
+			}
+		});
+		btnProfessores.setBounds(194, 167, 132, 23);
+		contentPane.add(btnProfessores);
+		
+		JButton btnAlunos = new JButton("Listar Alunos");
+		btnAlunos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtAluno.setText(""+alunos);
+			}
+		});
+		btnAlunos.setBounds(194, 232, 132, 23);
+		contentPane.add(btnAlunos);
 	}
 }
